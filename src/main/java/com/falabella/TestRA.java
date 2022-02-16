@@ -9,19 +9,24 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestRA {
+    private static final String userName = "TOOLSQA-Test";
+    private static final String password = "Test@@123";
+    private static final String baseUrl = "https://bookstore.toolsqa.com";
+    private static final String userID = "9b5f49ab-eea9-45f4-9d66-bcf56a531b85";
+    private RequestSpecification request;
 
-    public static void main(String[] args) {
-        String userID = "9b5f49ab-eea9-45f4-9d66-bcf56a531b85";
-        String userName = "TOOLSQA-Test";
-        String password = "Test@@123";
-        String baseUrl = "https://bookstore.toolsqa.com";
-
+    @Before
+    public void setup() {
         RestAssured.baseURI = baseUrl;
-        RequestSpecification request = RestAssured.given();
+        request = RestAssured.given();
+    }
 
-
+    @Test
+    public void apiResVerify() {
         //Step - 1
         //Test will start from generating Token for Authorization
         request.header("Content-Type", "application/json");
@@ -63,7 +68,7 @@ public class TestRA {
                         "\"collectionOfIsbns\": [ { \"isbn\": \"" + bookId + "\" } ]}")
                 .post("/BookStore/v1/Books");
 
-        Assert.assertEquals( 201, response.getStatusCode());
+        Assert.assertEquals(201, response.getStatusCode());
 
 
         //Step - 4
