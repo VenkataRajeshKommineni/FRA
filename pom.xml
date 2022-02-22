@@ -14,7 +14,7 @@
         <allure.junit4.version>2.14.0</allure.junit4.version>
         <allure.rest-assured.version>2.14.0</allure.rest-assured.version>
         <jackson.version>2.12.3</jackson.version>
-        <json.version>20210307</json.version>
+        <json.version>20211205</json.version>
         <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
